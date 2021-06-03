@@ -506,11 +506,6 @@
               <FileType>5</FileType>
               <FilePath>..\user\system_stm32f4xx.h</FilePath>
             </File>
-            <File>
-              <FileName>FreeRTOSConfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\user\FreeRTOSConfig.h</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -917,21 +912,6 @@
           <GroupName>DRIVER</GroupName>
           <Files>
             <File>
-              <FileName>adc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\drive\adc.c</FilePath>
-            </File>
-            <File>
-              <FileName>dac.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\drive\dac.c</FilePath>
-            </File>
-            <File>
-              <FileName>pwm.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\drive\pwm.c</FilePath>
-            </File>
-            <File>
               <FileName>spi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\drive\spi.c</FilePath>
@@ -945,11 +925,6 @@
               <FileName>delay.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\drive\delay.c</FilePath>
-            </File>
-            <File>
-              <FileName>ds18b20.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\drive\ds18b20.c</FilePath>
             </File>
             <File>
               <FileName>oled.c</FileName>
@@ -992,11 +967,6 @@
               <FilePath>..\drive\GUI.c</FilePath>
             </File>
             <File>
-              <FileName>DHT11.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\drive\DHT11.c</FilePath>
-            </File>
-            <File>
               <FileName>CODE_RUN_TIME.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\drive\CODE_RUN_TIME.c</FilePath>
@@ -1015,11 +985,6 @@
               <FileName>lcd1602.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\drive\lcd1602.c</FilePath>
-            </File>
-            <File>
-              <FileName>MPU6050.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\drive\MPU6050.c</FilePath>
             </File>
             <File>
               <FileName>SystemState.c</FileName>
@@ -1042,179 +1007,9 @@
               <FilePath>..\drive\Timer.h</FilePath>
             </File>
             <File>
-              <FileName>HC_SR04.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\drive\HC_SR04.c</FilePath>
-            </File>
-            <File>
               <FileName>FileOperate.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\drive\FileOperate.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>FreeRTOS/inc</GroupName>
-          <Files>
-            <File>
-              <FileName>croutine.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FreeRTOS\include\croutine.h</FilePath>
-            </File>
-            <File>
-              <FileName>deprecated_definitions.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FreeRTOS\include\deprecated_definitions.h</FilePath>
-            </File>
-            <File>
-              <FileName>event_groups.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FreeRTOS\include\event_groups.h</FilePath>
-            </File>
-            <File>
-              <FileName>FreeRTOS.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FreeRTOS\include\FreeRTOS.h</FilePath>
-            </File>
-            <File>
-              <FileName>list.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FreeRTOS\include\list.h</FilePath>
-            </File>
-            <File>
-              <FileName>message_buffer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FreeRTOS\include\message_buffer.h</FilePath>
-            </File>
-            <File>
-              <FileName>mpu_prototypes.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FreeRTOS\include\mpu_prototypes.h</FilePath>
-            </File>
-            <File>
-              <FileName>mpu_wrappers.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FreeRTOS\include\mpu_wrappers.h</FilePath>
-            </File>
-            <File>
-              <FileName>portable.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FreeRTOS\include\portable.h</FilePath>
-            </File>
-            <File>
-              <FileName>projdefs.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FreeRTOS\include\projdefs.h</FilePath>
-            </File>
-            <File>
-              <FileName>queue.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FreeRTOS\include\queue.h</FilePath>
-            </File>
-            <File>
-              <FileName>semphr.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FreeRTOS\include\semphr.h</FilePath>
-            </File>
-            <File>
-              <FileName>stack_macros.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FreeRTOS\include\stack_macros.h</FilePath>
-            </File>
-            <File>
-              <FileName>StackMacros.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FreeRTOS\include\StackMacros.h</FilePath>
-            </File>
-            <File>
-              <FileName>stream_buffer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FreeRTOS\include\stream_buffer.h</FilePath>
-            </File>
-            <File>
-              <FileName>task.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FreeRTOS\include\task.h</FilePath>
-            </File>
-            <File>
-              <FileName>timers.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FreeRTOS\include\timers.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>FreeRTOS/src</GroupName>
-          <Files>
-            <File>
-              <FileName>croutine.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FreeRTOS\Source\croutine.c</FilePath>
-            </File>
-            <File>
-              <FileName>event_groups.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FreeRTOS\Source\event_groups.c</FilePath>
-            </File>
-            <File>
-              <FileName>list.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FreeRTOS\Source\list.c</FilePath>
-            </File>
-            <File>
-              <FileName>queue.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FreeRTOS\Source\queue.c</FilePath>
-            </File>
-            <File>
-              <FileName>stream_buffer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FreeRTOS\Source\stream_buffer.c</FilePath>
-            </File>
-            <File>
-              <FileName>tasks.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FreeRTOS\Source\tasks.c</FilePath>
-            </File>
-            <File>
-              <FileName>timers.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FreeRTOS\Source\timers.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>FreeRTOS/port</GroupName>
-          <Files>
-            <File>
-              <FileName>heap_4.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FreeRTOS\portable\heap_4.c</FilePath>
-            </File>
-            <File>
-              <FileName>port.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FreeRTOS\portable\port.c</FilePath>
-            </File>
-            <File>
-              <FileName>portmacro.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FreeRTOS\portable\portmacro.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>DMP</GroupName>
-          <Files>
-            <File>
-              <FileName>inv_mpu.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\MPU6050DMP\inv_mpu.c</FilePath>
-            </File>
-            <File>
-              <FileName>inv_mpu_dmp_motion_driver.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\MPU6050DMP\inv_mpu_dmp_motion_driver.c</FilePath>
             </File>
           </Files>
         </Group>
