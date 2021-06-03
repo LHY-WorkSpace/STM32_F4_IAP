@@ -4,13 +4,7 @@
 __align(4) u8 A[1024],B[2048];   //对齐的部分不能在栈里！！！
 
 
-void MPU6050_Test()
-{
-	float pitch,yaw,roll; 
-	MPU6050_Get_DMP_Data(&pitch,&yaw,&roll);
-	printf("P:%f Y:%f R:%f\r\n",pitch,yaw,roll);
-}
-	
+
 
 void AT24C08_Test()
 {

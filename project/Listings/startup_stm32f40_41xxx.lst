@@ -70,7 +70,7 @@ ARM Macro Assembler    Page 2
 
 
                        Stack_Size
-                               EQU              0x00002000
+                               EQU              0x00002000  ;8K
    42 00000000         
    43 00000000                 AREA             STACK, NOINIT, READWRITE, ALIGN
 =3
@@ -83,23 +83,23 @@ ARM Macro Assembler    Page 2
    49 00002000         ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
    50 00002000         ; </h>
    51 00002000         
-   52 00002000 00000400 
+   52 00002000 00000800 
                        Heap_Size
-                               EQU              0x00000400
+                               EQU              0x00000800  ;2K
    53 00002000         
    54 00002000                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
 3
    55 00000000         __heap_base
    56 00000000         Heap_Mem
                                SPACE            Heap_Size
-   57 00000400         __heap_limit
-   58 00000400         
-   59 00000400                 PRESERVE8
-   60 00000400                 THUMB
-   61 00000400         
-   62 00000400         
-   63 00000400         ; Vector Table Mapped to Address 0 at Reset
-   64 00000400                 AREA             RESET, DATA, READONLY
+   57 00000800         __heap_limit
+   58 00000800         
+   59 00000800                 PRESERVE8
+   60 00000800                 THUMB
+   61 00000800         
+   62 00000800         
+   63 00000800         ; Vector Table Mapped to Address 0 at Reset
+   64 00000800                 AREA             RESET, DATA, READONLY
    65 00000000                 EXPORT           __Vectors
    66 00000000                 EXPORT           __Vectors_End
    67 00000000                 EXPORT           __Vectors_Size
@@ -857,11 +857,11 @@ ARM Macro Assembler    Page 14
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
 erwork --depend=.\objects\startup_stm32f40_41xxx.d -o.\objects\startup_stm32f40
-_41xxx.o -IE:\文档\资料\123\STM32_F4\project\RTE -ID:\SoftWare\MDK\ARM\PACK\Kei
-l\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include -ID:\SoftWare\
-MDK\ARM\CMSIS\Include --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VE
-RSION SETA 517" --predefine="STM32F407xx SETA 1" --list=.\listings\startup_stm3
-2f40_41xxx.lst ..\CMSIS\startup_stm32f40_41xxx.s
+_41xxx.o -IE:\文档\资料\123\STM32_F4_IAP\STM32_F4_IAP\project\RTE -ID:\SoftWare
+\MDK\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Inclu
+de -ID:\SoftWare\MDK\ARM\CMSIS\Include --predefine="__MICROLIB SETA 1" --predef
+ine="__UVISION_VERSION SETA 517" --predefine="STM32F407xx SETA 1" --list=.\list
+ings\startup_stm32f40_41xxx.lst ..\CMSIS\startup_stm32f40_41xxx.s
 
 
 
@@ -924,7 +924,7 @@ Symbol: __heap_base
    Uses
       At line 412 in file ..\CMSIS\startup_stm32f40_41xxx.s
 Comment: __heap_base used once
-__heap_limit 00000400
+__heap_limit 00000800
 
 Symbol: __heap_limit
    Definitions
@@ -1907,7 +1907,7 @@ Symbol: WWDG_IRQHandler
 ARM Macro Assembler    Page 1 Alphabetic symbol ordering
 Absolute symbols
 
-Heap_Size 00000400
+Heap_Size 00000800
 
 Symbol: Heap_Size
    Definitions
