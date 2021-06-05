@@ -61,4 +61,3 @@
 .\objects\lcd1602.o: ..\drive\GUI.H
 .\objects\lcd1602.o: ..\drive\TEST.h
 .\objects\lcd1602.o: ..\drive\FileOperate.h
-.\objects\lcd1602.o: ..\drive\IAP.h

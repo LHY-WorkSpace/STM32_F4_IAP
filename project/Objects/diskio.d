@@ -61,4 +61,3 @@
 .\objects\diskio.o: ..\drive\GUI.H
 .\objects\diskio.o: ..\drive\TEST.h
 .\objects\diskio.o: ..\drive\FileOperate.h
-.\objects\diskio.o: ..\drive\IAP.h

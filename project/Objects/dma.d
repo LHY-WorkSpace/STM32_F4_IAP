@@ -61,4 +61,3 @@
 .\objects\dma.o: ..\drive\GUI.H
 .\objects\dma.o: ..\drive\TEST.h
 .\objects\dma.o: ..\drive\FileOperate.h
-.\objects\dma.o: ..\drive\IAP.h

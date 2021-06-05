@@ -1,5 +1,5 @@
-#ifndef  _INCLUDE_FILE_H_
-#define  _INCLUDE_FILE_H_
+#ifndef  INCLUDE_FILE_H_
+#define  INCLUDE_FILE_H_
 
 //标准文件
 #include "stm32f4xx.h"

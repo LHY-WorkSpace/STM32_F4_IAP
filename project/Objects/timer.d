@@ -61,4 +61,3 @@
 .\objects\timer.o: ..\drive\GUI.H
 .\objects\timer.o: ..\drive\TEST.h
 .\objects\timer.o: ..\drive\FileOperate.h
-.\objects\timer.o: ..\drive\IAP.h

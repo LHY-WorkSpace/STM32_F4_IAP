@@ -61,4 +61,3 @@
 .\objects\code_run_time.o: ..\drive\GUI.H
 .\objects\code_run_time.o: ..\drive\TEST.h
 .\objects\code_run_time.o: ..\drive\FileOperate.h
-.\objects\code_run_time.o: ..\drive\IAP.h

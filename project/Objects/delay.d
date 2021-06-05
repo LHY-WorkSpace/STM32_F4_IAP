@@ -61,4 +61,3 @@
 .\objects\delay.o: ..\drive\GUI.H
 .\objects\delay.o: ..\drive\TEST.h
 .\objects\delay.o: ..\drive\FileOperate.h
-.\objects\delay.o: ..\drive\IAP.h

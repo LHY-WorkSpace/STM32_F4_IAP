@@ -61,4 +61,3 @@
 .\objects\spi.o: ..\drive\GUI.H
 .\objects\spi.o: ..\drive\TEST.h
 .\objects\spi.o: ..\drive\FileOperate.h
-.\objects\spi.o: ..\drive\IAP.h

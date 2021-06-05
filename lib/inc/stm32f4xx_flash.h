@@ -135,7 +135,8 @@ typedef enum
 #define FLASH_Sector_4     ((uint16_t)0x0020) /*!< Sector Number 4   */
 #define FLASH_Sector_5     ((uint16_t)0x0028) /*!< Sector Number 5   */
 #define FLASH_Sector_6     ((uint16_t)0x0030) /*!< Sector Number 6   */
-#define FLASH_Sector_7     ((uint16_t)0x0038) /*!< Sector Number 7   */
+#define FLASH_Sector_7     ((uint16_t)0x0038) /*!< Sector Number 7   */      //512K×î¶àµ½ 7ºÅ
+
 #define FLASH_Sector_8     ((uint16_t)0x0040) /*!< Sector Number 8   */
 #define FLASH_Sector_9     ((uint16_t)0x0048) /*!< Sector Number 9   */
 #define FLASH_Sector_10    ((uint16_t)0x0050) /*!< Sector Number 10  */

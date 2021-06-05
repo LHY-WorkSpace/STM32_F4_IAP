@@ -61,4 +61,3 @@
 .\objects\exti.o: ..\drive\GUI.H
 .\objects\exti.o: ..\drive\TEST.h
 .\objects\exti.o: ..\drive\FileOperate.h
-.\objects\exti.o: ..\drive\IAP.h

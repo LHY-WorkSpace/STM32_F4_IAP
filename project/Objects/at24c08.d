@@ -61,4 +61,3 @@
 .\objects\at24c08.o: ..\drive\GUI.H
 .\objects\at24c08.o: ..\drive\TEST.h
 .\objects\at24c08.o: ..\drive\FileOperate.h
-.\objects\at24c08.o: ..\drive\IAP.h

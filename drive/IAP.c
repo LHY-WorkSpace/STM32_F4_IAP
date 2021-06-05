@@ -2,55 +2,30 @@
 
 
 
+u8 USART1_Buffer[DATA_BUFFER];
+u16 RX_Point=0,Read_Point=0;
 
 
 
 
 
-__asm void Set_MSP(u32 MSP_addr)
-{
-    MSR MSP,r0
-    BX lr
-}
 
 
-void Goto_UserCode(u32 UserCodeAddr)
+void FLASH_EraseData()
 {
 
-    if()
+    FLASH_Unlock();
 
-
-
-
-__set_MSP(*(vu32*)USERCODE_BASE_ADDR);
-
-}
-
-
-
-
-void IAP_Start()
-{
-
-    
+	FLASH_EraseSector();
 
 
 
 
 
-    NVIC_SetVectorTable(NVIC_VectTab_FLASH,BOOTLOADER_CODE_SIZE); //将向量表重新定位到应用程序的起始地址
 
-    
-}
-
-void main()
-{
-
- 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);	
-	USART1_Init(115200,USART_DATA_8bit,USART_STOP_1bit,USART_PARTYT_NO);
-	Delay_Init();  //延时函数必须靠前，因为有些函数操作需要延时
-    File_FATFSInit();
-    
+	FLASH_ProgramWord(uint32_t Address, uint32_t Data);
+	FLASH_ProgramHalfWord(uint32_t Address, uint16_t Data);
+	FLASH_ProgramByte(uint32_t Address, uint8_t Data);
 
 
 
@@ -59,15 +34,95 @@ void main()
 
 
 
+    FLASH_Lock();
 
 }
 
 
 
 
+void UpdateCode()
+{
+
+
+//if(((*(vu32*)(USERCODE_BASE_ADDR+4))&0xFF000000)==0x08000000)
+
+
+
+
+    FLASH_Unlock();
+
+	FLASH_EraseSector();
+	
+	FLASH_ProgramWord(uint32_t Address, uint32_t Data);
+	FLASH_ProgramHalfWord(uint32_t Address, uint16_t Data);
+	FLASH_ProgramByte(uint32_t Address, uint8_t Data);
+
+
+
+
+    FLASH_Lock();
+}
 
 
 
 
 
+
+void Goto_UserCode()
+{
+
+	u32 JumpAddress;
+	typedef  void (*pFunction)(void);
+	pFunction Jump_To_Application;
+
+
+	if (((*(vu32*)USERCODE_BASE_ADDR) & 0x2FFE0000 ) == 0x20000000)    //判断内存地址是否超过 0x20010000 
+    { 
+
+      JumpAddress = *(vu32*) (USERCODE_BASE_ADDR + 4);   //取复位中断入口地址           
+      Jump_To_Application = (pFunction) JumpAddress;                             
+
+      __set_MSP(*(vu32*) USERCODE_BASE_ADDR);    //设置栈顶地址                      
+      Jump_To_Application();                                                     
+    }
+	else
+	{
+		
+		while (1)
+		{
+			printf("内存地址越界\r\n");
+			LED1_ON;
+			delay_ms(100);
+			LED1_OFF;
+			delay_ms(100);
+		}
+		
+	}
+
+}
+
+
+void USART1_IRQHandler()
+{
+	if(USART_GetITStatus(USART1,USART_IT_RXNE)!=RESET)
+	{
+		if( RX_Point >= DATA_BUFFER )
+		{
+			RX_Point = 0;	
+		}
+		USART1_Buffer[RX_Point] = USART_ReceiveData(USART1);
+		RX_Point++;		
+	}
+	if(USART_GetITStatus(USART1,USART_IT_TC)!=RESET)
+	{
+		if( TX_Point >= DATA_BUFFER )
+		{
+			TX_Point = 0;	
+		}
+		USART_SendData(USART1,USART1_Buffer[TX_Point] );
+		TX_Point++;		
+	}
+	USART_ClearITPendingBit(USART1,USART_IT_RXNE|USART_IT_TC);
+}
 

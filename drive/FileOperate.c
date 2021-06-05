@@ -29,11 +29,6 @@ u8 File_FATFSInit()
 	  	GPIOA_Initstruc.GPIO_Speed=GPIO_Speed_50MHz;           
 		GPIO_Init(GPIOA,&GPIOA_Initstruc);
 
-
-        
-
-
-
     return disk_initialize(DEV_SD);
 }
 
@@ -153,7 +148,7 @@ u8 File_WriteData(const char* Path,u8* Data,u16 Length,u32 Offset)
 
 
 
-//只能获取文件的大小，无法获取文件夹的大小
+//只能获取文件的大小，无法获取文件夹的大小(字节)
 u32 File_GetFileSize(const char* Path)
 {
     u8 sta;

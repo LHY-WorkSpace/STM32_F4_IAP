@@ -61,4 +61,3 @@
 .\objects\rtc.o: ..\drive\GUI.H
 .\objects\rtc.o: ..\drive\TEST.h
 .\objects\rtc.o: ..\drive\FileOperate.h
-.\objects\rtc.o: ..\drive\IAP.h

@@ -61,4 +61,3 @@
 .\objects\rng.o: ..\drive\GUI.H
 .\objects\rng.o: ..\drive\TEST.h
 .\objects\rng.o: ..\drive\FileOperate.h
-.\objects\rng.o: ..\drive\IAP.h

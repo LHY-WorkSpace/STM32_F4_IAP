@@ -61,4 +61,3 @@
 .\objects\led.o: ..\drive\GUI.H
 .\objects\led.o: ..\drive\TEST.h
 .\objects\led.o: ..\drive\FileOperate.h
-.\objects\led.o: ..\drive\IAP.h

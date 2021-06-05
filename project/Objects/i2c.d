@@ -61,4 +61,3 @@
 .\objects\i2c.o: ..\drive\GUI.H
 .\objects\i2c.o: ..\drive\TEST.h
 .\objects\i2c.o: ..\drive\FileOperate.h
-.\objects\i2c.o: ..\drive\IAP.h

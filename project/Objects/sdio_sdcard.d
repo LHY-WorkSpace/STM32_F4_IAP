@@ -61,4 +61,3 @@
 .\objects\sdio_sdcard.o: ..\drive\GUI.H
 .\objects\sdio_sdcard.o: ..\drive\TEST.h
 .\objects\sdio_sdcard.o: ..\drive\FileOperate.h
-.\objects\sdio_sdcard.o: ..\drive\IAP.h

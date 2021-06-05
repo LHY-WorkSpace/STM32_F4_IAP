@@ -61,4 +61,3 @@
 .\objects\fileoperate.o: ..\drive\GUI.H
 .\objects\fileoperate.o: ..\drive\TEST.h
 .\objects\fileoperate.o: ..\drive\FileOperate.h
-.\objects\fileoperate.o: ..\drive\IAP.h

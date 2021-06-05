@@ -1,9 +1,8 @@
 #include "IncludeFile.h"
+#include "IAP.h"
 
 
 
-u8 USART1_Buffer[1500];
-u16 RX_Point,TX_Point;
 
 /*
 	USART1_MODE_A : PA9-TX1 
@@ -160,28 +159,7 @@ int fputc(int ch, FILE* stream)
 
 
 
-void USART1_IRQHandler()
-{
-	if(USART_GetITStatus(USART1,USART_IT_RXNE)!=RESET)
-	{
-		if( RX_Point >= 1500 )
-		{
-			RX_Point = 0;	
-		}
-		USART1_Buffer[RX_Point] = USART_ReceiveData(USART1);
-		RX_Point++;		
-	}
-	if(USART_GetITStatus(USART1,USART_IT_TC)!=RESET)
-	{
-		if( TX_Point >= 1500 )
-		{
-			TX_Point = 0;	
-		}
-		USART_SendData(USART1,USART1_Buffer[TX_Point] );
-		TX_Point++;		
-	}
-	USART_ClearITPendingBit(USART1,USART_IT_RXNE|USART_IT_TC);
-}
+
 
 
 
