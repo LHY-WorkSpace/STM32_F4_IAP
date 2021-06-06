@@ -3,7 +3,7 @@
 
 
 u8 USART1_Buffer[DATA_BUFFER];
-u16 RX_Point=0,Read_Point=0;
+u16 RX_Point=0,Read_Point=0,TX_Point=0;
 
 
 
@@ -16,16 +16,12 @@ void FLASH_EraseData()
 
     FLASH_Unlock();
 
-	FLASH_EraseSector();
+	//FLASH_EraseSector();
 
 
-
-
-
-
-	FLASH_ProgramWord(uint32_t Address, uint32_t Data);
-	FLASH_ProgramHalfWord(uint32_t Address, uint16_t Data);
-	FLASH_ProgramByte(uint32_t Address, uint8_t Data);
+	// FLASH_ProgramWord(uint32_t Address, uint32_t Data);
+	// FLASH_ProgramHalfWord(uint32_t Address, uint16_t Data);
+	// FLASH_ProgramByte(uint32_t Address, uint8_t Data);
 
 
 
@@ -52,11 +48,11 @@ void UpdateCode()
 
     FLASH_Unlock();
 
-	FLASH_EraseSector();
+//	FLASH_EraseSector();
 	
-	FLASH_ProgramWord(uint32_t Address, uint32_t Data);
-	FLASH_ProgramHalfWord(uint32_t Address, uint16_t Data);
-	FLASH_ProgramByte(uint32_t Address, uint8_t Data);
+	// FLASH_ProgramWord(uint32_t Address, uint32_t Data);
+	// FLASH_ProgramHalfWord(uint32_t Address, uint16_t Data);
+	// FLASH_ProgramByte(uint32_t Address, uint8_t Data);
 
 
 
@@ -102,27 +98,38 @@ void Goto_UserCode()
 
 }
 
+void Goto_test()
+{
+	vu32 JumpAddress;
+	typedef  void (*pFunction)(void);
+	pFunction Jump_To_Application;
+
+	JumpAddress = *(vu32*) (USERCODE_BASE_ADDR + 4);   //取复位中断入口地址           
+    Jump_To_Application = (pFunction) JumpAddress;                             
+
+      __set_MSP(*(vu32*) USERCODE_BASE_ADDR);    //设置栈顶地址                      
+      Jump_To_Application();     
+}
+
+
+
+
 
 void USART1_IRQHandler()
 {
 	if(USART_GetITStatus(USART1,USART_IT_RXNE)!=RESET)
 	{
-		if( RX_Point >= DATA_BUFFER )
-		{
-			RX_Point = 0;	
-		}
 		USART1_Buffer[RX_Point] = USART_ReceiveData(USART1);
-		RX_Point++;		
+		RX_Point++;	
+		RX_Point=RX_Point%DATA_BUFFER; //自动转圈
+		USART_ClearITPendingBit(USART1,USART_IT_RXNE);
 	}
+
+
 	if(USART_GetITStatus(USART1,USART_IT_TC)!=RESET)
 	{
-		if( TX_Point >= DATA_BUFFER )
-		{
-			TX_Point = 0;	
-		}
-		USART_SendData(USART1,USART1_Buffer[TX_Point] );
-		TX_Point++;		
+		USART_ClearITPendingBit(USART1,USART_IT_TC);
 	}
-	USART_ClearITPendingBit(USART1,USART_IT_RXNE|USART_IT_TC);
+
 }
 

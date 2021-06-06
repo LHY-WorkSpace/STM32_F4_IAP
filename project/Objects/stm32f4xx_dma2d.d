@@ -2,7 +2,7 @@
 .\objects\stm32f4xx_dma2d.o: ..\lib\inc\stm32f4xx_dma2d.h
 .\objects\stm32f4xx_dma2d.o: ..\user\stm32f4xx.h
 .\objects\stm32f4xx_dma2d.o: ..\CMSIS\core_cm4.h
-.\objects\stm32f4xx_dma2d.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\stm32f4xx_dma2d.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\stm32f4xx_dma2d.o: ..\CMSIS\core_cmInstr.h
 .\objects\stm32f4xx_dma2d.o: ..\CMSIS\core_cmFunc.h
 .\objects\stm32f4xx_dma2d.o: ..\CMSIS\core_cmSimd.h

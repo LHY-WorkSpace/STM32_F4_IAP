@@ -2,7 +2,7 @@
 .\objects\usart.o: ..\drive\IncludeFile.h
 .\objects\usart.o: ..\user\stm32f4xx.h
 .\objects\usart.o: ..\CMSIS\core_cm4.h
-.\objects\usart.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\usart.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\usart.o: ..\CMSIS\core_cmInstr.h
 .\objects\usart.o: ..\CMSIS\core_cmFunc.h
 .\objects\usart.o: ..\CMSIS\core_cmSimd.h
@@ -35,11 +35,11 @@
 .\objects\usart.o: ..\lib\inc\stm32f4xx_dac.h
 .\objects\usart.o: ..\lib\inc\stm32f4xx_dcmi.h
 .\objects\usart.o: ..\lib\inc\stm32f4xx_fsmc.h
-.\objects\usart.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\string.h
+.\objects\usart.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\usart.o: ..\CMSIS\arm_math.h
 .\objects\usart.o: ..\CMSIS\core_cm4.h
-.\objects\usart.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\math.h
-.\objects\usart.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\usart.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\usart.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\usart.o: ..\drive\SystemState.h
 .\objects\usart.o: ..\drive\Timer.h
 .\objects\usart.o: ..\drive\usart.h

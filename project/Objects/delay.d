@@ -2,7 +2,7 @@
 .\objects\delay.o: ..\drive\IncludeFile.h
 .\objects\delay.o: ..\user\stm32f4xx.h
 .\objects\delay.o: ..\CMSIS\core_cm4.h
-.\objects\delay.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\delay.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\delay.o: ..\CMSIS\core_cmInstr.h
 .\objects\delay.o: ..\CMSIS\core_cmFunc.h
 .\objects\delay.o: ..\CMSIS\core_cmSimd.h
@@ -35,11 +35,11 @@
 .\objects\delay.o: ..\lib\inc\stm32f4xx_dac.h
 .\objects\delay.o: ..\lib\inc\stm32f4xx_dcmi.h
 .\objects\delay.o: ..\lib\inc\stm32f4xx_fsmc.h
-.\objects\delay.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\string.h
+.\objects\delay.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\delay.o: ..\CMSIS\arm_math.h
 .\objects\delay.o: ..\CMSIS\core_cm4.h
-.\objects\delay.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\math.h
-.\objects\delay.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\delay.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\delay.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\delay.o: ..\drive\SystemState.h
 .\objects\delay.o: ..\drive\Timer.h
 .\objects\delay.o: ..\drive\usart.h
@@ -61,3 +61,4 @@
 .\objects\delay.o: ..\drive\GUI.H
 .\objects\delay.o: ..\drive\TEST.h
 .\objects\delay.o: ..\drive\FileOperate.h
+.\objects\delay.o: ..\drive\IAP.h

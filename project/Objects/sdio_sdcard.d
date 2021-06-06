@@ -2,7 +2,7 @@
 .\objects\sdio_sdcard.o: ..\drive\IncludeFile.h
 .\objects\sdio_sdcard.o: ..\user\stm32f4xx.h
 .\objects\sdio_sdcard.o: ..\CMSIS\core_cm4.h
-.\objects\sdio_sdcard.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\sdio_sdcard.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\sdio_sdcard.o: ..\CMSIS\core_cmInstr.h
 .\objects\sdio_sdcard.o: ..\CMSIS\core_cmFunc.h
 .\objects\sdio_sdcard.o: ..\CMSIS\core_cmSimd.h
@@ -35,11 +35,11 @@
 .\objects\sdio_sdcard.o: ..\lib\inc\stm32f4xx_dac.h
 .\objects\sdio_sdcard.o: ..\lib\inc\stm32f4xx_dcmi.h
 .\objects\sdio_sdcard.o: ..\lib\inc\stm32f4xx_fsmc.h
-.\objects\sdio_sdcard.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\string.h
+.\objects\sdio_sdcard.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\sdio_sdcard.o: ..\CMSIS\arm_math.h
 .\objects\sdio_sdcard.o: ..\CMSIS\core_cm4.h
-.\objects\sdio_sdcard.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\math.h
-.\objects\sdio_sdcard.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\sdio_sdcard.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\sdio_sdcard.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\sdio_sdcard.o: ..\drive\SystemState.h
 .\objects\sdio_sdcard.o: ..\drive\Timer.h
 .\objects\sdio_sdcard.o: ..\drive\usart.h
@@ -61,3 +61,4 @@
 .\objects\sdio_sdcard.o: ..\drive\GUI.H
 .\objects\sdio_sdcard.o: ..\drive\TEST.h
 .\objects\sdio_sdcard.o: ..\drive\FileOperate.h
+.\objects\sdio_sdcard.o: ..\drive\IAP.h

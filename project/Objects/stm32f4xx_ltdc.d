@@ -2,7 +2,7 @@
 .\objects\stm32f4xx_ltdc.o: ..\lib\inc\stm32f4xx_ltdc.h
 .\objects\stm32f4xx_ltdc.o: ..\user\stm32f4xx.h
 .\objects\stm32f4xx_ltdc.o: ..\CMSIS\core_cm4.h
-.\objects\stm32f4xx_ltdc.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\stm32f4xx_ltdc.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\stm32f4xx_ltdc.o: ..\CMSIS\core_cmInstr.h
 .\objects\stm32f4xx_ltdc.o: ..\CMSIS\core_cmFunc.h
 .\objects\stm32f4xx_ltdc.o: ..\CMSIS\core_cmSimd.h

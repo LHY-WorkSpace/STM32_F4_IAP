@@ -2,7 +2,7 @@
 .\objects\led.o: ..\drive\IncludeFile.h
 .\objects\led.o: ..\user\stm32f4xx.h
 .\objects\led.o: ..\CMSIS\core_cm4.h
-.\objects\led.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\led.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\led.o: ..\CMSIS\core_cmInstr.h
 .\objects\led.o: ..\CMSIS\core_cmFunc.h
 .\objects\led.o: ..\CMSIS\core_cmSimd.h
@@ -35,11 +35,11 @@
 .\objects\led.o: ..\lib\inc\stm32f4xx_dac.h
 .\objects\led.o: ..\lib\inc\stm32f4xx_dcmi.h
 .\objects\led.o: ..\lib\inc\stm32f4xx_fsmc.h
-.\objects\led.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\string.h
+.\objects\led.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\led.o: ..\CMSIS\arm_math.h
 .\objects\led.o: ..\CMSIS\core_cm4.h
-.\objects\led.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\math.h
-.\objects\led.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\led.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\led.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\led.o: ..\drive\SystemState.h
 .\objects\led.o: ..\drive\Timer.h
 .\objects\led.o: ..\drive\usart.h
@@ -61,3 +61,4 @@
 .\objects\led.o: ..\drive\GUI.H
 .\objects\led.o: ..\drive\TEST.h
 .\objects\led.o: ..\drive\FileOperate.h
+.\objects\led.o: ..\drive\IAP.h

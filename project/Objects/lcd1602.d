@@ -2,7 +2,7 @@
 .\objects\lcd1602.o: ..\drive\IncludeFile.h
 .\objects\lcd1602.o: ..\user\stm32f4xx.h
 .\objects\lcd1602.o: ..\CMSIS\core_cm4.h
-.\objects\lcd1602.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\lcd1602.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\lcd1602.o: ..\CMSIS\core_cmInstr.h
 .\objects\lcd1602.o: ..\CMSIS\core_cmFunc.h
 .\objects\lcd1602.o: ..\CMSIS\core_cmSimd.h
@@ -35,11 +35,11 @@
 .\objects\lcd1602.o: ..\lib\inc\stm32f4xx_dac.h
 .\objects\lcd1602.o: ..\lib\inc\stm32f4xx_dcmi.h
 .\objects\lcd1602.o: ..\lib\inc\stm32f4xx_fsmc.h
-.\objects\lcd1602.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\string.h
+.\objects\lcd1602.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\lcd1602.o: ..\CMSIS\arm_math.h
 .\objects\lcd1602.o: ..\CMSIS\core_cm4.h
-.\objects\lcd1602.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\math.h
-.\objects\lcd1602.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\lcd1602.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\lcd1602.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\lcd1602.o: ..\drive\SystemState.h
 .\objects\lcd1602.o: ..\drive\Timer.h
 .\objects\lcd1602.o: ..\drive\usart.h
@@ -61,3 +61,4 @@
 .\objects\lcd1602.o: ..\drive\GUI.H
 .\objects\lcd1602.o: ..\drive\TEST.h
 .\objects\lcd1602.o: ..\drive\FileOperate.h
+.\objects\lcd1602.o: ..\drive\IAP.h

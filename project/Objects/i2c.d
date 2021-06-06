@@ -2,7 +2,7 @@
 .\objects\i2c.o: ..\drive\IncludeFile.h
 .\objects\i2c.o: ..\user\stm32f4xx.h
 .\objects\i2c.o: ..\CMSIS\core_cm4.h
-.\objects\i2c.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\i2c.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\i2c.o: ..\CMSIS\core_cmInstr.h
 .\objects\i2c.o: ..\CMSIS\core_cmFunc.h
 .\objects\i2c.o: ..\CMSIS\core_cmSimd.h
@@ -35,11 +35,11 @@
 .\objects\i2c.o: ..\lib\inc\stm32f4xx_dac.h
 .\objects\i2c.o: ..\lib\inc\stm32f4xx_dcmi.h
 .\objects\i2c.o: ..\lib\inc\stm32f4xx_fsmc.h
-.\objects\i2c.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\string.h
+.\objects\i2c.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\i2c.o: ..\CMSIS\arm_math.h
 .\objects\i2c.o: ..\CMSIS\core_cm4.h
-.\objects\i2c.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\math.h
-.\objects\i2c.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\i2c.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\i2c.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\i2c.o: ..\drive\SystemState.h
 .\objects\i2c.o: ..\drive\Timer.h
 .\objects\i2c.o: ..\drive\usart.h
@@ -61,3 +61,4 @@
 .\objects\i2c.o: ..\drive\GUI.H
 .\objects\i2c.o: ..\drive\TEST.h
 .\objects\i2c.o: ..\drive\FileOperate.h
+.\objects\i2c.o: ..\drive\IAP.h

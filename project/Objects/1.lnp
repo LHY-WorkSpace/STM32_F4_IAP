@@ -1,4 +1,4 @@
---cpu Cortex-M4
+--cpu=Cortex-M4.fp.sp
 ".\objects\startup_stm32f40_41xxx.o"
 "..\CMSIS\arm_cortexM4lf_math.lib"
 ".\objects\main.o"
@@ -65,11 +65,12 @@
 ".\objects\test.o"
 ".\objects\timer.o"
 ".\objects\fileoperate.o"
+".\objects\iap.o"
 ".\objects\diskio.o"
 ".\objects\ff.o"
 ".\objects\ffsystem.o"
 ".\objects\ffunicode.o"
 --library_type=microlib --strict --scatter ".\Objects\1.sct"
---summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\Listings\1.map" -o .\Objects\1.axf

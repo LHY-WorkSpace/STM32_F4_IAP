@@ -2,7 +2,7 @@
 .\objects\diskio.o: ..\drive\IncludeFile.h
 .\objects\diskio.o: ..\user\stm32f4xx.h
 .\objects\diskio.o: ..\CMSIS\core_cm4.h
-.\objects\diskio.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\diskio.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\diskio.o: ..\CMSIS\core_cmInstr.h
 .\objects\diskio.o: ..\CMSIS\core_cmFunc.h
 .\objects\diskio.o: ..\CMSIS\core_cmSimd.h
@@ -35,11 +35,11 @@
 .\objects\diskio.o: ..\lib\inc\stm32f4xx_dac.h
 .\objects\diskio.o: ..\lib\inc\stm32f4xx_dcmi.h
 .\objects\diskio.o: ..\lib\inc\stm32f4xx_fsmc.h
-.\objects\diskio.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\string.h
+.\objects\diskio.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\diskio.o: ..\CMSIS\arm_math.h
 .\objects\diskio.o: ..\CMSIS\core_cm4.h
-.\objects\diskio.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\math.h
-.\objects\diskio.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\diskio.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\diskio.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\diskio.o: ..\drive\SystemState.h
 .\objects\diskio.o: ..\drive\Timer.h
 .\objects\diskio.o: ..\drive\usart.h
@@ -61,3 +61,4 @@
 .\objects\diskio.o: ..\drive\GUI.H
 .\objects\diskio.o: ..\drive\TEST.h
 .\objects\diskio.o: ..\drive\FileOperate.h
+.\objects\diskio.o: ..\drive\IAP.h

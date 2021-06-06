@@ -2,7 +2,7 @@
 .\objects\at24c08.o: ..\drive\IncludeFile.h
 .\objects\at24c08.o: ..\user\stm32f4xx.h
 .\objects\at24c08.o: ..\CMSIS\core_cm4.h
-.\objects\at24c08.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\at24c08.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\at24c08.o: ..\CMSIS\core_cmInstr.h
 .\objects\at24c08.o: ..\CMSIS\core_cmFunc.h
 .\objects\at24c08.o: ..\CMSIS\core_cmSimd.h
@@ -35,11 +35,11 @@
 .\objects\at24c08.o: ..\lib\inc\stm32f4xx_dac.h
 .\objects\at24c08.o: ..\lib\inc\stm32f4xx_dcmi.h
 .\objects\at24c08.o: ..\lib\inc\stm32f4xx_fsmc.h
-.\objects\at24c08.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\string.h
+.\objects\at24c08.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\at24c08.o: ..\CMSIS\arm_math.h
 .\objects\at24c08.o: ..\CMSIS\core_cm4.h
-.\objects\at24c08.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\math.h
-.\objects\at24c08.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\at24c08.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\at24c08.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\at24c08.o: ..\drive\SystemState.h
 .\objects\at24c08.o: ..\drive\Timer.h
 .\objects\at24c08.o: ..\drive\usart.h
@@ -61,3 +61,4 @@
 .\objects\at24c08.o: ..\drive\GUI.H
 .\objects\at24c08.o: ..\drive\TEST.h
 .\objects\at24c08.o: ..\drive\FileOperate.h
+.\objects\at24c08.o: ..\drive\IAP.h

@@ -50,6 +50,16 @@ int main()
 		// }
 		
 
+	Goto_test();  
+	printf("内存地址越界\r\n");
+
+		while (1)
+		{
+			LED1_ON;
+			delay_ms(100);
+			LED1_OFF;
+			delay_ms(100);
+		}
 		
 	}
 	

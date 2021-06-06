@@ -2,7 +2,7 @@
 .\objects\oled.o: ..\drive\IncludeFile.h
 .\objects\oled.o: ..\user\stm32f4xx.h
 .\objects\oled.o: ..\CMSIS\core_cm4.h
-.\objects\oled.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\oled.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\oled.o: ..\CMSIS\core_cmInstr.h
 .\objects\oled.o: ..\CMSIS\core_cmFunc.h
 .\objects\oled.o: ..\CMSIS\core_cmSimd.h
@@ -35,11 +35,11 @@
 .\objects\oled.o: ..\lib\inc\stm32f4xx_dac.h
 .\objects\oled.o: ..\lib\inc\stm32f4xx_dcmi.h
 .\objects\oled.o: ..\lib\inc\stm32f4xx_fsmc.h
-.\objects\oled.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\string.h
+.\objects\oled.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\oled.o: ..\CMSIS\arm_math.h
 .\objects\oled.o: ..\CMSIS\core_cm4.h
-.\objects\oled.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\math.h
-.\objects\oled.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\oled.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\oled.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\oled.o: ..\drive\SystemState.h
 .\objects\oled.o: ..\drive\Timer.h
 .\objects\oled.o: ..\drive\usart.h
@@ -61,3 +61,4 @@
 .\objects\oled.o: ..\drive\GUI.H
 .\objects\oled.o: ..\drive\TEST.h
 .\objects\oled.o: ..\drive\FileOperate.h
+.\objects\oled.o: ..\drive\IAP.h

@@ -2,7 +2,7 @@
 .\objects\stm32f4xx_cryp_aes.o: ..\lib\inc\stm32f4xx_cryp.h
 .\objects\stm32f4xx_cryp_aes.o: ..\user\stm32f4xx.h
 .\objects\stm32f4xx_cryp_aes.o: ..\CMSIS\core_cm4.h
-.\objects\stm32f4xx_cryp_aes.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\stm32f4xx_cryp_aes.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\stm32f4xx_cryp_aes.o: ..\CMSIS\core_cmInstr.h
 .\objects\stm32f4xx_cryp_aes.o: ..\CMSIS\core_cmFunc.h
 .\objects\stm32f4xx_cryp_aes.o: ..\CMSIS\core_cmSimd.h

@@ -68,7 +68,7 @@ void USART1_Init(u32 bode,u16 DataLength,u16 StopBit,u16 Parity)
 	NVIC_Init(&NVIC_Initstr);
 
 	USART_ClearFlag(USART1,0x3ff);
-	USART_ITConfig(USART1,USART_IT_RXNE|USART_FLAG_TC,ENABLE);
+	USART_ITConfig(USART1,USART_IT_RXNE,ENABLE);
 	USART_Cmd(USART1,ENABLE);	
 }
 
@@ -136,7 +136,7 @@ void USART2_Init(u32 bode,u16 DataLength,u16 StopBit,u16 Parity)
 	NVIC_Init(&NVIC_Initstr);
 
 	USART_ClearFlag(USART2,0x3ff);
-	USART_ITConfig(USART2,USART_IT_RXNE|USART_FLAG_TC,ENABLE);
+	USART_ITConfig(USART2,USART_IT_RXNE,ENABLE);
 	USART_Cmd(USART2,ENABLE);	
 }
 
@@ -147,12 +147,12 @@ void USART2_Init(u32 bode,u16 DataLength,u16 StopBit,u16 Parity)
 输入参数为浮点数时，速度不宜过快，容易死机 一般在9600
 */
 int fputc(int ch, FILE* stream)          
-{			
+{		
+  	USART_SendData(USART1, (unsigned char) ch);
 	while ((USART_GetFlagStatus(USART1,USART_FLAG_TC)==RESET))
 	{
 
 	}
-    USART_SendData(USART1, (unsigned char) ch);
 	USART_ClearFlag(USART1,USART_FLAG_TC);
     return ch;
 }

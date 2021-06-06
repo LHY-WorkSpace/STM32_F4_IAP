@@ -2,7 +2,7 @@
 .\objects\code_run_time.o: ..\drive\IncludeFile.h
 .\objects\code_run_time.o: ..\user\stm32f4xx.h
 .\objects\code_run_time.o: ..\CMSIS\core_cm4.h
-.\objects\code_run_time.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\code_run_time.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\code_run_time.o: ..\CMSIS\core_cmInstr.h
 .\objects\code_run_time.o: ..\CMSIS\core_cmFunc.h
 .\objects\code_run_time.o: ..\CMSIS\core_cmSimd.h
@@ -35,11 +35,11 @@
 .\objects\code_run_time.o: ..\lib\inc\stm32f4xx_dac.h
 .\objects\code_run_time.o: ..\lib\inc\stm32f4xx_dcmi.h
 .\objects\code_run_time.o: ..\lib\inc\stm32f4xx_fsmc.h
-.\objects\code_run_time.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\string.h
+.\objects\code_run_time.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\code_run_time.o: ..\CMSIS\arm_math.h
 .\objects\code_run_time.o: ..\CMSIS\core_cm4.h
-.\objects\code_run_time.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\math.h
-.\objects\code_run_time.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\code_run_time.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\code_run_time.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\code_run_time.o: ..\drive\SystemState.h
 .\objects\code_run_time.o: ..\drive\Timer.h
 .\objects\code_run_time.o: ..\drive\usart.h
@@ -61,3 +61,4 @@
 .\objects\code_run_time.o: ..\drive\GUI.H
 .\objects\code_run_time.o: ..\drive\TEST.h
 .\objects\code_run_time.o: ..\drive\FileOperate.h
+.\objects\code_run_time.o: ..\drive\IAP.h

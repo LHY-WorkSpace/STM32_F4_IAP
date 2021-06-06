@@ -2,7 +2,7 @@
 .\objects\systemstate.o: ..\drive\IncludeFile.h
 .\objects\systemstate.o: ..\user\stm32f4xx.h
 .\objects\systemstate.o: ..\CMSIS\core_cm4.h
-.\objects\systemstate.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\systemstate.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\systemstate.o: ..\CMSIS\core_cmInstr.h
 .\objects\systemstate.o: ..\CMSIS\core_cmFunc.h
 .\objects\systemstate.o: ..\CMSIS\core_cmSimd.h
@@ -35,11 +35,11 @@
 .\objects\systemstate.o: ..\lib\inc\stm32f4xx_dac.h
 .\objects\systemstate.o: ..\lib\inc\stm32f4xx_dcmi.h
 .\objects\systemstate.o: ..\lib\inc\stm32f4xx_fsmc.h
-.\objects\systemstate.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\string.h
+.\objects\systemstate.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\systemstate.o: ..\CMSIS\arm_math.h
 .\objects\systemstate.o: ..\CMSIS\core_cm4.h
-.\objects\systemstate.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\math.h
-.\objects\systemstate.o: D:\SoftWare\MDK\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\systemstate.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\systemstate.o: D:\MDK 5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\systemstate.o: ..\drive\SystemState.h
 .\objects\systemstate.o: ..\drive\Timer.h
 .\objects\systemstate.o: ..\drive\usart.h
@@ -61,3 +61,4 @@
 .\objects\systemstate.o: ..\drive\GUI.H
 .\objects\systemstate.o: ..\drive\TEST.h
 .\objects\systemstate.o: ..\drive\FileOperate.h
+.\objects\systemstate.o: ..\drive\IAP.h
