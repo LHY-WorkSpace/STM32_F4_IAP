@@ -3,10 +3,6 @@
 
 
 
-
-
-
-
 int main()
 {
 
@@ -14,18 +10,13 @@ int main()
 	USART1_Init(115200,USART_DATA_8bit,USART_STOP_1bit,USART_PARTYT_NO);
 	led_init();
 	Delay_Init();  //延时函数必须靠前，因为有些函数操作需要延时
+	printf("BootLoader V1.0\r\n");
     if ( File_FATFSInit() != RES_OK)
 	{
 		printf("文件系统初始化失败\r\n");
-		while(1)
-		{
-			LED1_ON;
-			delay_ms(100);
-			LED1_OFF;
-			delay_ms(100);
-		}
+		Goto_UserCode(); 
 	}
-
+	System_SetState(USART_Buffer,BufferA_Empty);
     
 	while ( 1 )
 	{
@@ -50,7 +41,7 @@ int main()
 		// }
 		
 
-	Goto_test();  
+	TEst(); 
 	printf("内存地址越界\r\n");
 
 		while (1)

@@ -143,9 +143,6 @@ void USART2_Init(u32 bode,u16 DataLength,u16 StopBit,u16 Parity)
 
 
 
-/*
-输入参数为浮点数时，速度不宜过快，容易死机 一般在9600
-*/
 int fputc(int ch, FILE* stream)          
 {		
   	USART_SendData(USART1, (unsigned char) ch);
