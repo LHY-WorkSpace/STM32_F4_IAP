@@ -16,43 +16,29 @@ int main()
 		printf("文件系统初始化失败\r\n");
 		Goto_UserCode(); 
 	}
-	System_SetState(USART_Buffer,BufferA_Empty);
-    
-	while ( 1 )
+
+	if(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_8)==RESET)
 	{
-		if(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_8)==RESET)
-		{
-			printf("SD卡插入\r\n");
-		}
-		else
-		{
-			printf("未检测到SD卡\r\n");
-		}
-
-
-		// switch (expression)
-		// {
-		// 	case /* constant-expression */:
-		// 		/* code */
-		// 		break;
-			
-		// 	default:
-		// 		break;
-		// }
-		
-
-	TEst(); 
-	printf("内存地址越界\r\n");
-
-		while (1)
-		{
-			LED1_ON;
-			delay_ms(100);
-			LED1_OFF;
-			delay_ms(100);
-		}
-		
+		printf("SD卡插入\r\n");
 	}
+	else
+	{
+		printf("未检测到SD卡\r\n");
+	}
+
+	UpdateCode();
+	Goto_UserCode();
+
+	printf("升级失败\r\n");
+	while (1)
+	{
+		LED1_ON;
+		delay_ms(100);
+		LED1_OFF;
+		delay_ms(100);
+	}
+		
+
 	
 
 

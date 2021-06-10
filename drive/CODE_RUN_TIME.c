@@ -1,6 +1,6 @@
 #include "IncludeFile.h"
 
-u16 Run_Time; 
+u16 USART_IDLE_Time=0; 
 
 
 void Programe_Start(void)
@@ -16,16 +16,16 @@ void Programe_Start(void)
 	
 	NVIC_InitStructure.NVIC_IRQChannel=TIM6_DAC_IRQn;
 	NVIC_InitStructure.NVIC_IRQChannelCmd=ENABLE;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=0;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority=0;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=1;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority=1;
 	NVIC_Init(&NVIC_InitStructure);
 	
-	//TIM_ITConfig(TIM6,TIM_IT_Update,DISABLE);
-	//TIM_ClearFlag(TIM6,TIM_IT_Update);
+	TIM_ITConfig(TIM6,TIM_IT_Update,ENABLE);
+	TIM_ClearFlag(TIM6,TIM_IT_Update);
 	TIM_ARRPreloadConfig(TIM6,ENABLE);
 	TIM6->CNT = 0;
 
-	TIM_Cmd(TIM6,ENABLE);
+	TIM_Cmd(TIM6,DISABLE);
 	
 
 }
@@ -43,24 +43,19 @@ void  Programe_End_Ms()
 }
 
 
-void Show_RunTime()
-{
-	printf("Run Time: %d ms",Run_Time);
-}
+// void Show_RunTime()
+// {
+// 	printf("Run Time: %d ms",Run_Time);
+// }
 
 
 void TIM6_DAC_IRQHandler()
 {
-	static u16 Times_1ms=0;
-	
 		if(TIM_GetFlagStatus(TIM6,TIM_IT_Update)==1)
 		{
-			Run_Time=(++Times_1ms)*50+(TIM6->CNT/1000);
-			TIM_Cmd(TIM6,DISABLE);
-
+			USART_IDLE_Time++;
 		}
-
-TIM_ClearFlag(TIM6,TIM_IT_Update);
+	TIM_ClearFlag(TIM6,TIM_IT_Update);
 
 
 }

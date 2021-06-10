@@ -37,6 +37,33 @@
 
 
 
+typedef enum
+{
+    ACanNotRead,
+    ACanRead,
+    BCanNotRead,
+    BCanRead,
+    Busy
+}Read_State;
+
+
+
+typedef enum
+{
+    BufferB_Empty,
+    BufferA_Empty,
+}Buffer_State;
+
+
+
+
+
+
+
+
+
+
+
 
 
 

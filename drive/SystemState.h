@@ -119,14 +119,7 @@ typedef enum
 }Dev_ESP8266State_n;
 
 
-typedef enum
-{
-    BufferA_Full=0x01,
-    BufferB_Full=0x02,
-    BufferA_Empty=0x04,
-    BufferB_Empty=0x08
 
-}USART_Buffer_n;
 /*
 设备枚举列表，个数超出 DEVICES_NUM 时，需修改 DEVICES_NUM 的值
 */
@@ -141,7 +134,6 @@ typedef enum
     Dev_HCSR04,
     Dev_SD_Card,
     Dev_ESP8266,
-    USART_Buffer
         
 }SystemState_n;
 
