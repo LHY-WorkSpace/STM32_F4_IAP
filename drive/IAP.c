@@ -92,6 +92,8 @@ u16 i;
 	BufferState = BufferA_Empty;
 	TIM_Cmd(TIM6,ENABLE);
 
+	USART1_Buffer[0][2048]=0x55;
+	USART1_Buffer[0][2049]=0x55;
 	while(1)
 	{
 
@@ -207,7 +209,7 @@ void USART1_IRQHandler()
 		{
 			USART1_Buffer[0][RX_Point] = USART_ReceiveData(USART1);
 			RX_Point++;	
-			RX_Point=RX_Point%(DATA_BUFFER/2); //自动转圈
+			RX_Point=RX_Point%(DATA_BUFFER/2-1); //自动转圈
 			if(RX_Point ==0 )
 			{
 				BufferState = BufferB_Empty;
@@ -218,7 +220,7 @@ void USART1_IRQHandler()
 		{
 			USART1_Buffer[1][RX_Point] = USART_ReceiveData(USART1);
 			RX_Point++;	
-			RX_Point=RX_Point%(DATA_BUFFER/2); //自动转圈
+			RX_Point=RX_Point%(DATA_BUFFER/2-1); //自动转圈
 			if(RX_Point ==0 )
 			{
 				BufferState = BufferA_Empty;
