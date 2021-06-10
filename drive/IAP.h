@@ -31,7 +31,7 @@
 #define USERCODE_BASE_ADDR      ( (u32) BOOTLOADER_BASE_ADDR + BOOTLOADER_CODE_SIZE ) 
 #define USERCODE_CODE_SIZE      ( (u32) FLASH_SIZE - BOOTLOADER_CODE_SIZE )    //应用大小 496k
 
-//#define DATA_BUFFER             ((u16)0x1000)  //数据缓冲 4kB
+#define DATA_BUFFER             ((u16)0x1000)  //数据缓冲 4kB
 
 
 

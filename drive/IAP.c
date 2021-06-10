@@ -1,6 +1,6 @@
 #include "IncludeFile.h"
 
-#define DATA_BUFFER            1024
+//#define DATA_BUFFER            1024
 
 u8 USART1_Buffer[2][DATA_BUFFER/2];
 u16 RX_Point=0,Read_Point=0,TX_Point=0;
@@ -26,7 +26,9 @@ void FLASH_EraseData(u32 ByteCount)
 		case 0:
 		{
 			if(FLASH_EraseSector(FLASH_Sector_1,VoltageRange_3) == FLASH_COMPLETE)
-			p=1;
+			{
+				p=1;
+			}
 		break;
 		}
 
@@ -34,8 +36,10 @@ void FLASH_EraseData(u32 ByteCount)
 		{
 			if( SECTOR_1_SIZE< ByteCount && ByteCount <= (SECTOR_1_SIZE+SECTOR_2_SIZE))
 			{
-			if(FLASH_EraseSector(FLASH_Sector_2,VoltageRange_3) == FLASH_COMPLETE)
-				p=2;
+				if(FLASH_EraseSector(FLASH_Sector_2,VoltageRange_3) == FLASH_COMPLETE)
+				{
+					p=2;
+				}
 			}
 		break;
 		}
@@ -44,8 +48,10 @@ void FLASH_EraseData(u32 ByteCount)
 		{
 			if( SECTOR_1_SIZE*2< ByteCount && ByteCount <= (SECTOR_1_SIZE*3))
 			{
-			if(FLASH_EraseSector(FLASH_Sector_3,VoltageRange_3) == FLASH_COMPLETE)
-				p=3;
+				if(FLASH_EraseSector(FLASH_Sector_3,VoltageRange_3) == FLASH_COMPLETE)
+				{
+					p=3;
+				}
 			}
 		break;
 		}
@@ -55,8 +61,10 @@ void FLASH_EraseData(u32 ByteCount)
 			if( SECTOR_1_SIZE*3 < ByteCount 
 				&& ByteCount <= (SECTOR_1_SIZE*2+SECTOR_4_SIZE))
 			{
-			if(FLASH_EraseSector(FLASH_Sector_4,VoltageRange_3) == FLASH_COMPLETE)
-				p=4;
+				if(FLASH_EraseSector(FLASH_Sector_4,VoltageRange_3) == FLASH_COMPLETE)
+				{
+					p=4;
+				}
 			}
 		break;
 		}
@@ -76,6 +84,7 @@ void UpdateCode()
 {
 u8 buff[DATA_BUFFER/2];
 static u32 CodeAddr=USERCODE_BASE_ADDR; 
+static u32 add=0; 
 u16 i;
 //if(((*(vu32*)(USERCODE_BASE_ADDR+4))&0xFF000000)==0x08000000)
 	Programe_Start();
@@ -85,17 +94,18 @@ u16 i;
 
 	while(1)
 	{
-		FLASH_EraseData(DataCount);
 
+		FLASH_EraseData(DataCount);
+		
 		switch(ReadState)
 		{
-
 			case ACanRead :
 				{
 					memcpy(buff,&USART1_Buffer[0][0],sizeof(buff));
 					for(i=0;i<sizeof(buff);i++)
 					{
 						FLASH_ProgramByte(CodeAddr++,buff[i]);
+						add++;
 					}
 					ReadState = ACanNotRead;
 				break;
@@ -106,7 +116,8 @@ u16 i;
 					memcpy(buff,&USART1_Buffer[1][0],sizeof(buff));
 					for(i=0;i<sizeof(buff);i++)
 					{
-						FLASH_ProgramByte(CodeAddr,buff[i]);
+						FLASH_ProgramByte(CodeAddr++,buff[i]);
+						add++;
 					}
 
 					ReadState = BCanNotRead;
@@ -115,6 +126,7 @@ u16 i;
 
 			case Busy :
 				{
+
 					if( USART_IDLE_Time > 100 )
 					{
 						if(ReadState == ACanNotRead)
@@ -128,8 +140,10 @@ u16 i;
 						for(i=0;i<RX_Point;i++)
 						{
 							FLASH_ProgramByte(CodeAddr++,buff[i]);
+							add++;
 						}
 						FLASH_Lock();
+						printf("%d ",add);
 						return;
 					}
 
