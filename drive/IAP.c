@@ -59,7 +59,7 @@ void FLASH_EraseData(u32 ByteCount)
 		case 3:
 		{
 			if( SECTOR_1_SIZE*3 < ByteCount 
-				&& ByteCount <= (SECTOR_1_SIZE*2+SECTOR_4_SIZE))
+				&& ByteCount <= (SECTOR_1_SIZE*3+SECTOR_4_SIZE))
 			{
 				if(FLASH_EraseSector(FLASH_Sector_4,VoltageRange_3) == FLASH_COMPLETE)
 				{
@@ -69,9 +69,22 @@ void FLASH_EraseData(u32 ByteCount)
 		break;
 		}
 
+		case 4:
+		{
+			if( (SECTOR_1_SIZE*3+SECTOR_4_SIZE) < ByteCount 
+				&& ByteCount <= (SECTOR_1_SIZE*3+SECTOR_4_SIZE+SECTOR_5_SIZE))
+			{
+				if(FLASH_EraseSector(FLASH_Sector_5,VoltageRange_3) == FLASH_COMPLETE)
+				{
+					p=5;
+				}
+			}
+		break;
+		}
+
 		default:
 		{
-			printf("升级文件过大\r\n");
+			printf("升级文件过大，最大支持240kB大小的bin文件\r\n");
 			break;
 		}
 	}
@@ -166,7 +179,7 @@ void Goto_UserCode()
 
 
 	if (	((*(vu32*)USERCODE_BASE_ADDR) & 0x2FFE0000 ) == 0x20000000 
-		&&  ((*(vu32*)USERCODE_BASE_ADDR+4) & 0xFF000000)==0x08000000
+		&&  ((*(vu32*)USERCODE_BASE_ADDR+4) & 0xFF000000) == 0x08000000
 		)
 		    //判断内存地址是否超过 0x20010000 
 			！！！！！！
@@ -206,7 +219,7 @@ void USART1_IRQHandler()
 		{
 			USART1_Buffer[0][RX_Point] = USART_ReceiveData(USART1);
 			RX_Point++;	
-			RX_Point=RX_Point%(DATA_BUFFER/2); //自动转圈
+			RX_Point=RX_Point%(DATA_BUFFER/2); 
 			if(RX_Point ==0 )
 			{
 				BufferState = BufferB_Empty;
@@ -217,7 +230,7 @@ void USART1_IRQHandler()
 		{
 			USART1_Buffer[1][RX_Point] = USART_ReceiveData(USART1);
 			RX_Point++;	
-			RX_Point=RX_Point%(DATA_BUFFER/2); //自动转圈
+			RX_Point=RX_Point%(DATA_BUFFER/2); 
 			if(RX_Point ==0 )
 			{
 				BufferState = BufferA_Empty;

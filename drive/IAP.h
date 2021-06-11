@@ -8,9 +8,11 @@
 
 //FLASH×Ü´óÐ¡  512k
 #define SECTOR_0_SIZE      ( (u32) 16*1024 )  
+
 #define SECTOR_1_SIZE      ( (u32) 16*1024 ) 
 #define SECTOR_2_SIZE      ( (u32) 16*1024 ) 
 #define SECTOR_3_SIZE      ( (u32) 16*1024 ) 
+
 #define SECTOR_4_SIZE      ( (u32) 64*1024 ) 
 #define SECTOR_5_SIZE      ( (u32) 128*1024 ) 
 #define SECTOR_6_SIZE      ( (u32) 128*1024 ) 
