@@ -203,7 +203,7 @@ void USART1_IRQHandler()
 {
 	if(USART_GetITStatus(USART1,USART_IT_RXNE)!=RESET)
 	{
-		ReadState = Busy;
+		
 
 		if( BufferState == BufferA_Empty)
 		{
@@ -216,7 +216,7 @@ void USART1_IRQHandler()
 				ReadState = ACanRead;
 			}
 		}
-		if( BufferState == BufferB_Empty)
+		else if( BufferState == BufferB_Empty)
 		{
 			USART1_Buffer[1][RX_Point] = USART_ReceiveData(USART1);
 			RX_Point++;	
@@ -227,6 +227,10 @@ void USART1_IRQHandler()
 				ReadState = BCanRead;
 			}
 			
+		}
+		else
+		{
+			ReadState = Busy;
 		}
 		USART_IDLE_Time = 0;
 		DataCount++;
