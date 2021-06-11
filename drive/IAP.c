@@ -11,13 +11,7 @@ extern u16 USART_IDLE_Time;
 
 
 
-	// FLASH_ProgramWord(uint32_t Address, uint32_t Data);
-	// FLASH_ProgramHalfWord(uint32_t Address, uint16_t Data);
-	// FLASH_ProgramByte(uint32_t Address, uint8_t Data);
-
-
-
-void FLASH_EraseData(u32 ByteCount)
+u8 FLASH_EraseData(u32 ByteCount)
 {
 	static u8 p=0;
 
@@ -28,6 +22,10 @@ void FLASH_EraseData(u32 ByteCount)
 			if(FLASH_EraseSector(FLASH_Sector_1,VoltageRange_3) == FLASH_COMPLETE)
 			{
 				p=1;
+			}
+			else
+			{
+				p=0x55;
 			}
 		break;
 		}
@@ -40,6 +38,10 @@ void FLASH_EraseData(u32 ByteCount)
 				{
 					p=2;
 				}
+				else
+				{
+					p=0x55;
+				}
 			}
 		break;
 		}
@@ -51,6 +53,10 @@ void FLASH_EraseData(u32 ByteCount)
 				if(FLASH_EraseSector(FLASH_Sector_3,VoltageRange_3) == FLASH_COMPLETE)
 				{
 					p=3;
+				}
+				else
+				{
+					p=0x55;
 				}
 			}
 		break;
@@ -65,6 +71,10 @@ void FLASH_EraseData(u32 ByteCount)
 				{
 					p=4;
 				}
+				else
+				{
+					p=0x55;
+				}
 			}
 		break;
 		}
@@ -78,17 +88,28 @@ void FLASH_EraseData(u32 ByteCount)
 				{
 					p=5;
 				}
+				else
+				{
+					p=0x55;
+				}
 			}
 		break;
 		}
 
 		default:
 		{
-			printf("升级文件过大，最大支持240kB大小的bin文件\r\n");
-			break;
+			if( p == 0x55)
+			{
+				printf("擦除扇区失败\r\n");
+			}
+			else if(p == 5)
+			{
+				printf("升级文件过大，最大支持240kB大小的bin文件\r\n");
+			}
+			
 		}
 	}
-
+	return p;
 }
 
 
@@ -97,9 +118,8 @@ void UpdateCode()
 {
 u8 buff[DATA_BUFFER/2];
 static u32 CodeAddr=USERCODE_BASE_ADDR; 
-static u32 add=0; 
 u16 i;
-
+u8 Result;
 	Programe_Start();
     FLASH_Unlock();
 	BufferState = BufferA_Empty;
@@ -108,7 +128,12 @@ u16 i;
 	while(1)
 	{
 
-		FLASH_EraseData(DataCount);
+		Result = FLASH_EraseData(DataCount);
+
+		if(Result == 0x55)
+		{
+			return;
+		}
 		
 		switch(ReadState)
 		{
@@ -137,7 +162,7 @@ u16 i;
 			case Busy :
 				{
 
-					if( USART_IDLE_Time > 100 )
+					if( USART_IDLE_Time > USART_OVERTIME )
 					{
 						if(ReadState == ACanNotRead)
 						{
@@ -177,12 +202,7 @@ void Goto_UserCode()
 	typedef  void (*pFunction)(void);
 	pFunction Jump_To_Application;
 
-
-	if (	((*(vu32*)USERCODE_BASE_ADDR) & 0x2FFE0000 ) == 0x20000000 
-		&&  ((*(vu32*)USERCODE_BASE_ADDR+4) & 0xFF000000) == 0x08000000
-		)
-		    //判断内存地址是否超过 0x20010000 
-			！！！！！！
+	if ( ((*(vu32*)USERCODE_BASE_ADDR) & 0x2FFE0000 ) == 0x20000000 ) 		    //判断内存地址是否超过 0x20010000 
     { 
 		JumpAddress = *(vu32*) (USERCODE_BASE_ADDR + 4);   //取复位中断入口地址           
 		Jump_To_Application = (pFunction) JumpAddress;                             
@@ -192,15 +212,8 @@ void Goto_UserCode()
     }
 	else
 	{
-		printf("地址错误，请检查升级文件\r\n");
-		while (1)
-		{
-			LED1_ON;
-			delay_ms(100);
-			LED1_OFF;
-			delay_ms(100);
-		}
-		
+		printf("栈地址错误，请检查升级文件\r\n");
+		return;
 	}
 
 }

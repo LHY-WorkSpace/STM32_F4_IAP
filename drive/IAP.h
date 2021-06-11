@@ -31,8 +31,7 @@
 
 #define DATA_BUFFER             ((u16)0x1000)  //数据缓冲 4kB
 
-
-
+#define USART_OVERTIME              20        //接收超时时间( USART_OVERTIME * 50ms ) 超过这个时间USART未收到数据就认为数据传输完毕
 
 
 typedef enum
@@ -54,7 +53,8 @@ typedef enum
 
 
 
-
+void  UpdateCode(void);
+void  Goto_UserCode(void);
 
 
 

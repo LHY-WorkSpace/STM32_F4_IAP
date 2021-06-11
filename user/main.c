@@ -11,20 +11,23 @@ int main()
 	led_init();
 	Delay_Init();  //延时函数必须靠前，因为有些函数操作需要延时
 	printf("BootLoader V1.0\r\n");
-    if ( File_FATFSInit() != RES_OK)
-	{
-		printf("文件系统初始化失败\r\n");
-		Goto_UserCode(); 
-	}
 
 	if(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_8)==RESET)
 	{
-		printf("SD卡插入\r\n");
+		printf("检测到SD卡\r\n");
+		if ( File_FATFSInit() != RES_OK)
+		{
+			printf("文件系统初始化失败\r\n");
+			Goto_UserCode(); 
+		}
 	}
 	else
 	{
 		printf("未检测到SD卡\r\n");
 	}
+
+
+
 
 	UpdateCode();
 	Goto_UserCode();
