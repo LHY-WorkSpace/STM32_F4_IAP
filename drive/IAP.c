@@ -1,12 +1,12 @@
 #include "IncludeFile.h"
 
-//#define DATA_BUFFER            1024
 
 u8 USART1_Buffer[2][DATA_BUFFER/2];
 u16 RX_Point=0,Read_Point=0,TX_Point=0;
-u32 DataCount=0;
+//接收字节计数器,用于决定擦除范围
+u32 DataCount=0; 
 Buffer_State BufferState;
-Read_State  ReadState;
+Read_State  ReadState = ACanNotRead;
 extern u16 USART_IDLE_Time; 
 
 
@@ -86,14 +86,12 @@ u8 buff[DATA_BUFFER/2];
 static u32 CodeAddr=USERCODE_BASE_ADDR; 
 static u32 add=0; 
 u16 i;
-//if(((*(vu32*)(USERCODE_BASE_ADDR+4))&0xFF000000)==0x08000000)
+
 	Programe_Start();
     FLASH_Unlock();
 	BufferState = BufferA_Empty;
 	TIM_Cmd(TIM6,ENABLE);
 
-	USART1_Buffer[0][2048]=0x55;
-	USART1_Buffer[0][2049]=0x55;
 	while(1)
 	{
 
@@ -107,7 +105,6 @@ u16 i;
 					for(i=0;i<sizeof(buff);i++)
 					{
 						FLASH_ProgramByte(CodeAddr++,buff[i]);
-						add++;
 					}
 					ReadState = ACanNotRead;
 				break;
@@ -119,9 +116,7 @@ u16 i;
 					for(i=0;i<sizeof(buff);i++)
 					{
 						FLASH_ProgramByte(CodeAddr++,buff[i]);
-						add++;
 					}
-
 					ReadState = BCanNotRead;
 				break;
 				}
@@ -133,7 +128,7 @@ u16 i;
 					{
 						if(ReadState == ACanNotRead)
 						{
-							memcpy(buff,&USART1_Buffer[1][0],RX_Point);
+							memcpy(buff,&USART1_Buffer[1][0],RX_Point);    //不满一个buff的字节写入
 						}
 						else
 						{
@@ -142,10 +137,8 @@ u16 i;
 						for(i=0;i<RX_Point;i++)
 						{
 							FLASH_ProgramByte(CodeAddr++,buff[i]);
-							add++;
 						}
 						FLASH_Lock();
-						printf("%d ",add);
 						return;
 					}
 
@@ -172,7 +165,11 @@ void Goto_UserCode()
 	pFunction Jump_To_Application;
 
 
-	if (((*(vu32*)USERCODE_BASE_ADDR) & 0x2FFE0000 ) == 0x20000000)    //判断内存地址是否超过 0x20010000 
+	if (	((*(vu32*)USERCODE_BASE_ADDR) & 0x2FFE0000 ) == 0x20000000 
+		&&  ((*(vu32*)USERCODE_BASE_ADDR+4) & 0xFF000000)==0x08000000
+		)
+		    //判断内存地址是否超过 0x20010000 
+			！！！！！！
     { 
 		JumpAddress = *(vu32*) (USERCODE_BASE_ADDR + 4);   //取复位中断入口地址           
 		Jump_To_Application = (pFunction) JumpAddress;                             
@@ -203,13 +200,13 @@ void USART1_IRQHandler()
 {
 	if(USART_GetITStatus(USART1,USART_IT_RXNE)!=RESET)
 	{
-		
+		ReadState = Busy;
 
 		if( BufferState == BufferA_Empty)
 		{
 			USART1_Buffer[0][RX_Point] = USART_ReceiveData(USART1);
 			RX_Point++;	
-			RX_Point=RX_Point%(DATA_BUFFER/2-1); //自动转圈
+			RX_Point=RX_Point%(DATA_BUFFER/2); //自动转圈
 			if(RX_Point ==0 )
 			{
 				BufferState = BufferB_Empty;
@@ -220,19 +217,18 @@ void USART1_IRQHandler()
 		{
 			USART1_Buffer[1][RX_Point] = USART_ReceiveData(USART1);
 			RX_Point++;	
-			RX_Point=RX_Point%(DATA_BUFFER/2-1); //自动转圈
+			RX_Point=RX_Point%(DATA_BUFFER/2); //自动转圈
 			if(RX_Point ==0 )
 			{
 				BufferState = BufferA_Empty;
 				ReadState = BCanRead;
 			}
-			
 		}
 		else
 		{
-			ReadState = Busy;
+			
 		}
-		USART_IDLE_Time = 0;
+		USART_IDLE_Time = 0;//清除超时计数器
 		DataCount++;
 		USART_ClearITPendingBit(USART1,USART_IT_RXNE);
 	}
