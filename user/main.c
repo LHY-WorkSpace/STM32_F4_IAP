@@ -35,6 +35,8 @@ int main()
 	printf("Éý¼¶Ê§°Ü\r\n");
 	while (1)
 	{
+
+		
 		LED1_ON;
 		delay_ms(100);
 		LED1_OFF;
