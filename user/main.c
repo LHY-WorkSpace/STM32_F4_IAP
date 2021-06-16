@@ -17,6 +17,18 @@ int main()
 		printf("检测到SD卡\r\n");
 		if ( File_FATFSInit() != RES_OK)
 		{
+				File_MountDisk("1:");
+				File_OpenDir("1:/SD");
+				// File_CreateNewFile("1:/SD/Data.c");
+				// File_CreateNewFile("1:/SD/del.c");
+				// File_WriteData("1:/SD/Data.c",(u8*)"Working!!",10,0);
+				// File_WriteData("1:/SD/Data.c",(u8*)"add Test",9,10);
+				File_ReadData("1:/SD/Data.c",Data,10,10);
+				File_Delete("1:/SD/Data.c");
+				File_WriteData("1:/SD/del.c",Data,10,0);
+				size=File_GetFileSize("1:/STM32.c");
+
+
 			printf("文件系统初始化失败\r\n");
 			Goto_UserCode(); 
 		}
@@ -41,6 +53,10 @@ int main()
 		delay_ms(100);
 		LED1_OFF;
 		delay_ms(100);
+		LED1_ON;
+		delay_ms(100);
+		LED1_OFF;
+		delay_ms(500);
 	}
 		
 

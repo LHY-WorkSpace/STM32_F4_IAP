@@ -120,7 +120,7 @@ u8 buff[DATA_BUFFER/2];
 static u32 CodeAddr=USERCODE_BASE_ADDR; 
 u16 i;
 u8 Result;
-	Programe_Start();
+	Programe_Start();//启动超时计时器
     FLASH_Unlock();
 	BufferState = BufferA_Empty;
 	TIM_Cmd(TIM6,ENABLE);
@@ -130,7 +130,7 @@ u8 Result;
 
 		Result = FLASH_EraseData(DataCount);
 
-		if(Result == 0x55)
+		if( Result == 0x55 || Result == 5 )
 		{
 			return;
 		}
