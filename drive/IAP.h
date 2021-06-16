@@ -53,7 +53,8 @@ typedef enum
 
 
 
-void  UpdateCode(void);
+void  UpdateCode_ByUSART(void);
+void  UpdateCode_BySD(void);
 void  Goto_UserCode(void);
 
 

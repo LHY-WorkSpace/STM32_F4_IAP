@@ -10,7 +10,7 @@ Read_State  ReadState = ACanNotRead;
 extern u16 USART_IDLE_Time; 
 
 
-
+//实时监测串口接收数据量，根据数据量擦除对应扇区
 u8 FLASH_EraseData(u32 ByteCount)
 {
 	static u8 p=0;
@@ -114,7 +114,7 @@ u8 FLASH_EraseData(u32 ByteCount)
 
 
 
-void UpdateCode()
+void UpdateCode_ByUSART()
 {
 u8 buff[DATA_BUFFER/2];
 static u32 CodeAddr=USERCODE_BASE_ADDR; 
@@ -192,6 +192,67 @@ u8 Result;
 
 
 
+void  UpdateCode_BySD()
+{
+	FRESULT SD_Tstate;
+	static u32 CodeAddr=USERCODE_BASE_ADDR; 
+
+	if(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_8)==RESET)
+	{
+		printf("检测到SD卡\r\n");
+		if ( File_FATFSInit() != RES_OK)
+		{
+				File_MountDisk("1:");
+				File_OpenDir("1:/SD");
+				// File_CreateNewFile("1:/SD/Data.c");
+				// File_CreateNewFile("1:/SD/del.c");
+				// File_WriteData("1:/SD/Data.c",(u8*)"Working!!",10,0);
+				// File_WriteData("1:/SD/Data.c",(u8*)"add Test",9,10);
+				File_ReadData("1:/SD/Data.c",Data,10,10);
+				File_Delete("1:/SD/Data.c");
+				File_WriteData("1:/SD/del.c",Data,10,0);
+				size=File_GetFileSize("1:/STM32.c");
+
+
+		if( BufferState == BufferA_Empty)
+		{
+			USART1_Buffer[0][RX_Point] = USART_ReceiveData(USART1);
+			RX_Point++;	
+			RX_Point=RX_Point%(DATA_BUFFER/2); 
+			if(RX_Point ==0 )
+			{
+				BufferState = BufferB_Empty;
+				ReadState = ACanRead;
+			}
+		}
+		else if( BufferState == BufferB_Empty)
+		{
+			USART1_Buffer[1][RX_Point] = USART_ReceiveData(USART1);
+			RX_Point++;	
+			RX_Point=RX_Point%(DATA_BUFFER/2); 
+			if(RX_Point ==0 )
+			{
+				BufferState = BufferA_Empty;
+				ReadState = BCanRead;
+			}
+		}
+
+
+
+
+
+
+			printf("文件系统初始化失败\r\n");
+			Goto_UserCode(); 
+		}
+	}
+	else
+	{
+		printf("未检测到SD卡\r\n");
+	}
+
+
+}
 
 
 
