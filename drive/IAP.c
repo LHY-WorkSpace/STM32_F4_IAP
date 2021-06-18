@@ -208,10 +208,10 @@ void  UpdateCode_BySD()
 				// File_CreateNewFile("1:/SD/del.c");
 				// File_WriteData("1:/SD/Data.c",(u8*)"Working!!",10,0);
 				// File_WriteData("1:/SD/Data.c",(u8*)"add Test",9,10);
-				File_ReadData("1:/SD/Data.c",Data,10,10);
-				File_Delete("1:/SD/Data.c");
-				File_WriteData("1:/SD/del.c",Data,10,0);
-				size=File_GetFileSize("1:/STM32.c");
+//				File_ReadData("1:/SD/Data.c",Data,10,10);
+//				File_Delete("1:/SD/Data.c");
+//				File_WriteData("1:/SD/del.c",Data,10,0);
+//				size=File_GetFileSize("1:/STM32.c");
 
 
 		if( BufferState == BufferA_Empty)
