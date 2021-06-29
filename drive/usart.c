@@ -144,12 +144,11 @@ void USART2_Init(u32 bode,u16 DataLength,u16 StopBit,u16 Parity)
 
 
 int fputc(int ch, FILE* stream)          
-{		
-  	USART_SendData(USART1, (unsigned char) ch);
+{	
 	while ((USART_GetFlagStatus(USART1,USART_FLAG_TC)==RESET))
 	{
-
 	}
+  	USART_SendData(USART1, (unsigned char) ch);
 	USART_ClearFlag(USART1,USART_FLAG_TC);
     return ch;
 }
