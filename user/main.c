@@ -12,14 +12,9 @@ int main()
 	Delay_Init();  //延时函数必须靠前，因为有些函数操作需要延时
 	printf("BootLoader V1.0\r\n");
 
-
-
-
-
-
 	UpdateCode_ByUSART();
 	Goto_UserCode();
-
+	
 	printf("升级失败\r\n");
 	while (1)
 	{
@@ -34,14 +29,7 @@ int main()
 		LED1_OFF;
 		delay_ms(500);
 	}
-		
-
 	
-
-
-
-
-
 	Goto_UserCode();
 
 }

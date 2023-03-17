@@ -116,10 +116,10 @@ u8 FLASH_EraseData(u32 ByteCount)
 
 void UpdateCode_ByUSART()
 {
-u8 buff[DATA_BUFFER/2];
-static u32 CodeAddr=USERCODE_BASE_ADDR; 
-u16 i;
-u8 Result;
+	u8 buff[DATA_BUFFER/2];
+	static u32 CodeAddr=USERCODE_BASE_ADDR; 
+	u16 i;
+	u8 Result;
 	Programe_Start();//启动超时计时器
     FLASH_Unlock();
 	BufferState = BufferA_Empty;
